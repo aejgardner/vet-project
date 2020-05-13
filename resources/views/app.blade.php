@@ -10,7 +10,7 @@
     <body>
         <div class="container">
             <header>
-                <h3>Veterinary Clinic</h3>
+                <h3>Adam's Veterinary Clinic</h3>
                 @include('_parts/navbar')
             </header>
             

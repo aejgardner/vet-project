@@ -1,10 +1,4 @@
-@extends('app')
-
-@section('title', 'Veterinary Clinic | Owner')
-
-@section('content')
-    <h1>Owner Page</h1>
-
+@foreach ($owners AS $owner)
     <p>
         {{ $owner->fullName() }}
     </p>
@@ -14,4 +8,4 @@
     <p>
         {{ $owner->formattedPhoneNumber() }}
     </p>
-@endsection
+@endforeach

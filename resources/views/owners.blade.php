@@ -10,10 +10,6 @@
             No owners found.
         </p>
     @else
-        @foreach ($owners AS $owner)
-            <p>
-                {{ $owner->fullName() }}
-            </p>
-        @endforeach
+        @include('_parts/owners_list')
     @endif
 @endsection

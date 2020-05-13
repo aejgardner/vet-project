@@ -17,5 +17,7 @@
 
         <label for="message">Message</label>
         <textarea name="message" id="message" cols="30" rows="10"></textarea>
+
+        <button>Send Message</button>
     </form>
 @endsection

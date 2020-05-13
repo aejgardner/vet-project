@@ -3,7 +3,7 @@
 @section('title', 'Veterinary Clinic | Contact')
 
 @section('content')
-    <h1>Contact Us</h1>
+    <h1 class="text-success">Contact Us</h1>
 
     <form action="">
         <label for="first_name">First Name</label>

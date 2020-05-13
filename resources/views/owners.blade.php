@@ -3,7 +3,7 @@
 @section('title', 'Veterinary Clinic | Owners')
 
 @section('content')
-    <h1>Owners Page</h1>
+    <h1 class="text-success">Owners Page</h1>
 
     @if (count($owners) === 0)
         <p>

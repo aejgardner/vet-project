@@ -3,7 +3,7 @@
 @section('title', 'Veterinary Clinic | Owner')
 
 @section('content')
-    <h1>Owner Page</h1>
+    <h1 class="text-success">Singular Owner Page</h1>
 
     <p>
         {{ $owner->fullName() }}

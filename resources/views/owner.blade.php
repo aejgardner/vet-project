@@ -1,9 +1,9 @@
 @extends('app')
 
-@section('title', "Adam's Veterinary Clinic | Owner")
+@section('title', "Adam Vets | Owner")
 
 @section('content')
-    <h1 class="text-success text-center">Singular Owner Page</h1>
+    <h1 class="text-success text-center py-4">Singular Owner Page</h1>
     <div class="text-center">
         <p>
             {{ $owner->fullName() }}

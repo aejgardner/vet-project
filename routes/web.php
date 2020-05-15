@@ -21,6 +21,9 @@ Route::get('/owners', 'Owners@index');
 Route::get('owners/create', 'Owners@create');
 Route::post('/owners/create', 'Owners@createOwner');
 
+// get input from nav searchbar
+Route::get('/owners/search', 'Owners@searchOwner');
+
 // edit
 Route::get('/owners/edit/{owner}', 'Owners@edit');
 Route::post('/owners/edit/{owner}', 'Owners@editOwner');
@@ -28,7 +31,6 @@ Route::post('/owners/edit/{owner}', 'Owners@editOwner');
 // bring up singular owner page and post request when adding animal
 Route::get('/owners/{owner}', 'Owners@show');
 Route::post('/owners/{owner}', 'Owners@addAnimal');
-
 
 Route::get('/contact', function() {
     return view('contact');

@@ -70,4 +70,18 @@ class Owners extends Controller
 
         return redirect("/owners/{$owner->id}");
     }
+
+    public function searchOwners(Request $request) // after form is submitted, the values are accessed via the request
+    {
+        
+        $searchTerm = $request->query('search');
+
+        $owners = Owner::where('first_name', 'like', $searchTerm)
+                        ->orWhere('last_name', 'like', $searchTerm)
+                        ->get();
+
+        // dd($owners);
+
+        return view('searchresults', ['owners' => $owners]);
+    }
 }

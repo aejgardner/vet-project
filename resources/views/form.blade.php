@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', "Adam's Veterinary Clinic | Create")
+@section('title', "Adam Vets | Create")
 
 @section('content')
     <form class="form card" method="POST">

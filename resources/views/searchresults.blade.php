@@ -1,9 +1,9 @@
 @extends('app')
 
-@section('title', "Adam Vets  | Owners")
+@section('title', "Adam Vets | Results")
 
 @section('content')
-    <h1 class="text-success text-center py-4">Owners Hub</h1>
+    <h1 class="text-success text-center py-4">Search Results</h1>
 
     @if (count($owners) === 0)
         <p>

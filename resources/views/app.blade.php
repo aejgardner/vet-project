@@ -8,17 +8,18 @@
         <title>@yield('title')</title>
     </head>
     <body>
+        
+        <header>
+            @include('_parts/navbar')
+        </header>
+
         <div class="container">
-            <header class="navbar p-2 bd-highlight">
-                <h3 class="text-success">Adam's Veterinary Clinic</h3>
-                @include('_parts/navbar')
-            </header>
             
             <main>
                 @yield('content')
             </main>
-            
-            @include('_parts/footer')
+
         </div>
+        @include('_parts/footer')
     </body>
 </html>

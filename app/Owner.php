@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Owner extends Model
 {
+
+    protected $fillable = ["first_name", "last_name", "telephone", "address_1", "address_2", "town", "postcode"];
+
     public function fullName()
     {
         return $this->first_name . " " . $this->last_name;
@@ -20,4 +23,10 @@ class Owner extends Model
     {
         return substr($this->telephone, 0, -7) . " " . substr($this->telephone, 4, -4) . " " . substr($this->telephone, -4);
     }
+
+    public function animals()
+  {
+    // use hasMany relationship method
+    return $this->hasMany(Animal::class);
+  }
 }

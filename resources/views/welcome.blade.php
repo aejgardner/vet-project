@@ -1,12 +1,12 @@
 @extends('app')
 
-@section('title', 'Veterinary Clinic | Welcome')
+@section('title', "Adam's Veterinary Clinic | Welcome")
 
 @section('content')
-    <h1 class="text-success">Welcome to Adam's Veterinary Clinic</h1>
+    <h1 class="text-success text-center">Welcome to Adam's Veterinary Clinic</h1>
 
-        <p>
+        <h2 class="text-center text-primary">
             {{ $greeting }}
-        </p>
+        </h2>
 
 @endsection

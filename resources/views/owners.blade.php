@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Veterinary Clinic | Owners')
+@section('title', "Adam's Veterinary Clinic | Owners")
 
 @section('content')
     <h1 class="text-success">Owners Page</h1>

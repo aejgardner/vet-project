@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="container">
-            <header>
+            <header class="navbar p-2 bd-highlight">
                 <h3 class="text-success">Adam's Veterinary Clinic</h3>
                 @include('_parts/navbar')
             </header>

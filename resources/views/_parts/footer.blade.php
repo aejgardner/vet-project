@@ -1,3 +1,3 @@
 <footer>
-    <p>&copy Veterinary Clinic 2020</p>
+    <p class="text-center">&copy Veterinary Clinic 2020</p>
 </footer>

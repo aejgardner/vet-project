@@ -23,7 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(["prefix" => "owners"], function () {
+Route::group(["prefix" => "owners",
+            "middleware" => ["auth:api"]], function () { // auth:api = you must have an api key to get any further. So vets will log into the site, and will THEN be able to request an api key because they are already confirmed to be a vet by logging in.
 
     // list all owners
     Route::get('', [Owners::class, "index"]);

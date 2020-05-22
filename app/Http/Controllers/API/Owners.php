@@ -5,7 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Owner;
 use App\Http\Resources\API\OwnerResource;
-use App\Http\Requests\API\OwnerRequest as Request; // uses OwnerRequest - validation for posting owner info to API
+// use App\Http\Requests\API\OwnerRequest; // uses OwnerRequest - validation for posting owner info to API
+use App\Http\Requests\OwnerStoreRequest as Request; // authorisation - OwnerStoreRequest contains data stating only admins can deal with owner requests eg creating or aditing an owner.
+
 
 class Owners extends Controller
 {

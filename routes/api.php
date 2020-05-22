@@ -2,6 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\Owners;
+use App\Http\Controllers\API\Animals;
+use App\Http\Controllers\API\Owners\Animals as ForeignKeys;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +22,54 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(["prefix" => "owners"], function () {
+
+    // list all owners
+    Route::get('', [Owners::class, "index"]);
+
+    // create new owner
+    Route::post("", [Owners::class, "store"]);
+
+    Route::group(["prefix" => "{owner}"], function () {
+
+        // show one owner
+        Route::get('', [Owners::class, "show"]);
+        
+        // edit an owner
+        Route::put('', [Owners::class, "update"]);
+
+        // delete owner
+        Route::delete("", [Owners::class, "destroy"]);
+
+        // TRICKSY owners/{owner}/animals
+        Route::post('/animals', 'API\Owners\animals@store');
+        Route::get('/animals', 'API\Owners\animals@show');
+
+    });
+
+});
+
+Route::group(["prefix" => "animals"], function () {
+
+    // list all animals
+    Route::get('', [Animals::class, "index"]);
+
+    // create new animal
+    Route::post("", [Animals::class, "store"]);
+
+    Route::group(["prefix" => "{animal}"], function () {
+
+        // show one animal
+        Route::get('', [Animals::class, "show"]);
+        
+        // edit an animal
+        Route::put('', [Animals::class, "update"]);
+
+        // delete animal
+        Route::delete("", [Animals::class, "destroy"]);
+
+    });
+
+});
+

@@ -10,6 +10,7 @@ use App\Http\Requests\AnimalRequest;
 
 class Owners extends Controller
 {
+    // return list of all owners
     public function index() 
     {
         $owners = Owner::paginate(10);
@@ -46,13 +47,15 @@ class Owners extends Controller
     }
 
     // handles the edit owner post request
-    public function editOwner(OwnerRequest $request, Owner $owner)
+    public function editOwner(OwnerRequest $request, Owner $owner) // request = new data, owner = pre existing owner data, attained by the id number the user puts in the url
     {
         // get all of the new relevant submitted data
         $data = $request->all();
         
         // 'fills' or overwrites existing fields in owner's details
         $owner->fill($data)->save();
+
+        return redirect("/owners/{$owner->id}");
     }
 
     // post request when owner adds animal
@@ -66,21 +69,20 @@ class Owners extends Controller
 
         $data = array_merge($data, $owner_id);
         
-        $animal = Animal::create($data);
+        $animal = Animal::create($data); // is this just like doing $animal = new Animal() in artisan tinker?
 
         return redirect("/owners/{$owner->id}");
     }
 
-    public function searchOwners(Request $request) // after form is submitted, the values are accessed via the request
+    // handle owner search post request
+    public function searchOwner(Request $request) // after form is submitted, the values are accessed via the request - is it just called 'request' if it hasn't gone through a custom made request (i.e. AnimalRequest)?
     {
-        
+        // 'search' is the value of the 'name' attribute in the input, that Laravel latches onto
         $searchTerm = $request->query('search');
 
         $owners = Owner::where('first_name', 'like', $searchTerm)
                         ->orWhere('last_name', 'like', $searchTerm)
                         ->get();
-
-        // dd($owners);
 
         return view('searchresults', ['owners' => $owners]);
     }

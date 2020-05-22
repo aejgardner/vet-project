@@ -24,9 +24,19 @@ class Owner extends Model
         return substr($this->telephone, 0, -7) . " " . substr($this->telephone, 4, -4) . " " . substr($this->telephone, -4);
     }
 
+    public function validPhoneNumber()
+    {
+        return strlen($this->telephone) === 11;
+    }
+
     public function animals()
-  {
-    // use hasMany relationship method
-    return $this->hasMany(Animal::class);
-  }
+    {
+        // use hasMany relationship method
+        return $this->hasMany(Animal::class);
+    }
+
+    public function numberOfPets()
+    {
+        return $this->animals->count();
+    }
 }

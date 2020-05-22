@@ -21,15 +21,6 @@
         <h2 class="card-header">Add Animal</h2>
         
         <fieldset class="card-body">
-            {{-- <div class="form-group">
-                <label for="owner_id">Owner Id</label>
-                <input disabled id="owner_id" name="owner_id" class="form-control" value="{{ $owner->id }}"/> 
-            </div>
-            @error('owner_id')
-                <p class="form-control is-invalid">
-                    {{ $message }}
-                </p>
-            @enderror --}}
 
             <div class="form-group">
                 <label for="name">Name</label>

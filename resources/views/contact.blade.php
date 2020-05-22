@@ -49,6 +49,6 @@
                 </p>
             @enderror
         
-        <button class="btn btn-primary">Send Message</button>
+        <button class="btn btn-success">Send Message</button>
     </form>
 @endsection

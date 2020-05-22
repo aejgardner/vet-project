@@ -3,9 +3,9 @@
 @section('title', "Adam Vets | Create")
 
 @section('content')
+    <h1 class="text-success text-center py-4">{{ isset($owner) ? "Edit Owner" : "Create Owner"}}</h1>
     <form class="form card" method="POST">
         @csrf
-        <h2 class="card-header">Create Owner</h2>
         
         <fieldset class="card-body">
             <div class="form-group">
@@ -78,10 +78,8 @@
                 </p>
             @enderror
         
+        <button class="btn btn-success"> {{ isset($owner) ? "Save Changes" : "Create"}}</button>
         </fieldset>
-        
-        <div class="card-footer text-right">
-            <button class="btn btn-success">Create</button>
-        </div>
+
     </form>
 @endsection

@@ -16,7 +16,26 @@ class Animal extends Model
     
     public function owner()
   {
-    // an animal belongs to an owner
+    // an animal belongs to one owner
     return $this->belongsTo(Owner::class);
+  }
+
+  // animal can have many treatments
+  public function treatments()
+  {
+    return $this->belongsToMany(Treatment::class);
+  }
+
+  // just accept an array of strings
+  // we don't want to pass request in as there's no
+  // reason models should know about about the request
+  public function setTreatments(array $strings) : Animal
+  {
+    $treatments = Treatment::fromStrings($strings);
+    // we're on an animal instance, so use $this
+    // pass in collection of IDs
+    $this->treatments()->sync($treatments->pluck("id"));
+    // return $this in case we want to chain
+    return $this;
   }
 }
